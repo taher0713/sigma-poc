@@ -101,7 +101,7 @@ services:
       - "./genesis.json:/datadir/genesis.json"
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
-      - "./datadir/validator_3:/datadir/geth"
+      - "./datadir/validator_4:/datadir/geth"
     restart: always
 
   rpc:
