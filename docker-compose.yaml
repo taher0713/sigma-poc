@@ -1,6 +1,5 @@
 version: "3"
 services:
-
   bootnode:
     image: ankrnetwork/bas-template-bsc:devel
     command:
@@ -134,7 +133,7 @@ services:
       - "./password.txt:/datadir/password.txt"
     restart: always
 
- faucet_2:
+  faucet_2:
     image: ankrnetwork/bas-template-bsc:devel
     command:
       - "faucet"
@@ -155,5 +154,3 @@ services:
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
     restart: always
-
-    
