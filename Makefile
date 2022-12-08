@@ -11,4 +11,4 @@ deploy-chain:
 .PHONY: deploy-validator
 deploy-validator:
 	cp /tmp/.env ./validator/.env
-	docker-compose -f ./validator/docker-compose.yaml --env-file ./.env up -d
+	docker compose -f ./validator/docker-compose.yaml --env-file ./.env up -d
