@@ -12,5 +12,5 @@ deploy-chain:
 deploy-validator:
 	rm -rf ./genesis.json
 	cp /tmp/genesis.json genesis.json
-	cp /tmp/.env ./.env
-	docker compose -f ./validator/docker-compose.yaml --env-file ./.env up -d
+	cp /tmp/.env ./validator/.env
+	docker compose -f ./validator/docker-compose.yaml up -d
