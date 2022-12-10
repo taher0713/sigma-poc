@@ -8,4 +8,3 @@ deploy-chain:
 	cp /tmp/genesis.json genesis.json
 	docker-compose up -d
 
-.PHONY: deploy-validator
