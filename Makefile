@@ -17,7 +17,7 @@ deploy-chain: check-env
 	cat ./docker-compose.yaml | envsubst | docker-compose -f - up -d
 
 .PHONY: deploy-chain-2
-deploy-chain: check-env
+deploy-chain-2: check-env
 	rm -rf ./genesis.json
 	cp /tmp/genesis.json genesis.json
 	cat ./v2/docker-compose.yaml | envsubst | docker-compose -f - pull
