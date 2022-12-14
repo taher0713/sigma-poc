@@ -10,8 +10,8 @@ services:
       - "--nodekeyhex=633ab917d09441de38ae9251e79ced41df39a1c338842b826c18fb1773246e18"
       - "--syncmode=full"
     volumes:
-      - "../genesis.json:/datadir/genesis.json"
-      - "../datadir/bootnode:/datadir/geth"
+      - "./genesis.json:/datadir/genesis.json"
+      - "./datadir/bootnode:/datadir/geth"
     ports:
       - "30303:30303"
     restart: always
@@ -32,10 +32,10 @@ services:
       - "--syncmode=full"
       - "--networkid=17243"
     volumes:
-      - "../genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
-      - "../datadir/validator_1:/datadir/geth"
+      - "./genesis.json:/datadir/genesis.json"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
+      - "./datadir/validator_1:/datadir/geth"
     restart: always
 
   validator_2:
@@ -54,10 +54,10 @@ services:
       - "--syncmode=full"
       - "--networkid=17243"
     volumes:
-      - "../genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
-      - "../datadir/validator_2:/datadir/geth"
+      - "./genesis.json:/datadir/genesis.json"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
+      - "./datadir/validator_2:/datadir/geth"
     restart: always
 
   validator_3:
@@ -76,10 +76,10 @@ services:
       - "--syncmode=full"
       - "--networkid=17243"
     volumes:
-      - "../genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
-      - "../datadir/validator_3:/datadir/geth"
+      - "./genesis.json:/datadir/genesis.json"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
+      - "./datadir/validator_3:/datadir/geth"
     restart: always
 
   rpc:
@@ -107,10 +107,10 @@ services:
       - "8545:8545"
       - "8546:8546"
     volumes:
-      - "../genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
-      - "../datadir/rpc:/datadir/geth"
+      - "./genesis.json:/datadir/genesis.json"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
+      - "./datadir/rpc:/datadir/geth"
     restart: always
 
   faucet_1:
@@ -130,9 +130,9 @@ services:
     ports:
       - "5000:8080"
     volumes:
-      - "../genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
+      - "./genesis.json:/datadir/genesis.json"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
     restart: always
 
   faucet_2:
@@ -152,9 +152,9 @@ services:
     ports:
       - "5001:8080"
     volumes:
-      - "../genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
+      - "./genesis.json:/datadir/genesis.json"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
     restart: always
 
   blockscout-db:
@@ -165,7 +165,7 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_HOST_AUTH_METHOD: "trust"
     volumes:
-      - ../datadir/blockscout:/var/lib/postgresql/data
+      - ./datadir/blockscout:/var/lib/postgresql/data
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
@@ -194,7 +194,7 @@ services:
     image: redis
     command: redis-server --requirepass 123456
     volumes:
-      - ../datadir/redis:/data
+      - ./datadir/redis:/data
     ports:
       - "6379:6379"
     restart: always
